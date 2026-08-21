@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    width: 95%;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: #f1c40f;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #bdc3c7;
+}
+
+.controls {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+select, button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+select {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+button {
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+.fretboard-container {
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+#fretboard {
+    display: flex;
+    flex-direction: column;
+    width: 1200px; /* Sabit genişlik */
+    background: #5c4033; /* Ahşap rengi */
+    border: 3px solid #3e2723;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.string {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    position: relative;
+}
+
+.string::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    background: #bdc3c7; /* Tel rengi */
+    z-index: 1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Tel kalınlıkları */
+.string:nth-child(1)::before { height: 1px; } /* İnce Mi (E) */
+.string:nth-child(2)::before { height: 1.5px; } /* Si (B) */
+.string:nth-child(3)::before { height: 2px; } /* Sol (G) */
+.string:nth-child(4)::before { height: 2.5px; } /* Re (D) */
+.string:nth-child(5)::before { height: 3px; } /* La (A) */
+.string:nth-child(6)::before { height: 4px; } /* Kalın Mi (E) */
+
+.note {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid silver; /* Perdeler */
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.note:first-child {
+    border-right: 5px solid #ecf0f1; /* Eşik (Nut) */
+    background-color: #3e2723;
+}
+
+.note-label {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform: scale(0.8);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.note:hover .note-label {
+    opacity: 0.7;
+    transform: scale(1);
+}
+
+.note.active .note-label {
+    opacity: 1;
+    transform: scale(1.1);
+    background-color: #f1c40f;
+    color: #2c3e50;
+}
+
+.note.highlight .note-label {
+    opacity: 1;
+    transform: scale(1.1);
+    background-color: #e74c3c;
+    color: white;
+}

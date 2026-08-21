@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FretBoard Master - Nota Bulucu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FretBoard Master</h1>
+        <p>Gitar klavyesindeki notaları keşfet ve öğren.</p>
+        
+        <div class="controls">
+            <label for="note-select">Vurgulanacak Nota:</label>
+            <select id="note-select">
+                <option value="none">Seçiniz...</option>
+                <option value="C">C (Do)</option>
+                <option value="C#">C# / Db</option>
+                <option value="D">D (Re)</option>
+                <option value="D#">D# / Eb</option>
+                <option value="E">E (Mi)</option>
+                <option value="F">F (Fa)</option>
+                <option value="F#">F# / Gb</option>
+                <option value="G">G (Sol)</option>
+                <option value="G#">G# / Ab</option>
+                <option value="A">A (La)</option>
+                <option value="A#">A# / Bb</option>
+                <option value="B">B (Si)</option>
+            </select>
+            <button id="clear-btn">Tümünü Temizle</button>
+        </div>
+
+        <div class="fretboard-container">
+            <div id="fretboard"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
